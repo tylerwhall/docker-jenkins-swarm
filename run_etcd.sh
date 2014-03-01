@@ -3,11 +3,8 @@
 set -e
 
 PUBLIC_IP=${PUBLIC_IP:-127.0.0.1}
-ETCD_AUTHDIR=${ETCD_AUTHDIR:-./ca}
 
-CACERT="$ETCD_AUTHDIR/ca.crt"
-CERT="$ETCD_AUTHDIR/client.crt"
-KEY="$ETCD_AUTHDIR/client.key"
+. $(dirname $0)/auth.sh
 
 if [ -f "$CERT" -a -f "$KEY" ]; then
     DOCKER_OPTS="-v $ETCD_AUTHDIR:/auth"
