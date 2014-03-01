@@ -5,7 +5,7 @@ if [ -z "$ETCD_URL" ]; then
     exit 1
 fi
 
-ETCD_AUTHDIR=${ETC_AUTHDIR:-./ca2}
+ETCD_AUTHDIR=${ETCD_AUTHDIR:-./ca}
 CACERT="$ETCD_AUTHDIR/ca.crt"
 CERT="$ETCD_AUTHDIR/client.crt"
 KEY="$ETCD_AUTHDIR/client.key"
