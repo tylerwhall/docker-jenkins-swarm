@@ -42,6 +42,7 @@ fi
 
 SWARM_LABELS="$SWARM_LABELS $DISTRO"
 
+cd $HOME
 cmd="java -jar $HOME/swarm-client.jar -master "$JENKINS_URL" $JENKINS_USERPASS -labels '$SWARM_LABELS' $SWARM_OPTIONS"
 echo $cmd
 eval $cmd
