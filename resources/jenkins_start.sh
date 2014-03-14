@@ -26,6 +26,7 @@ function get_etcd_value () {
 get_etcd_value JENKINS_URL jenkins/url
 if [ -z "$JENKINS_URL" ]; then
     echo "Unable to retrieve jenkins url from etcd."
+    exit 1
 fi
 
 DISTRO=`lsb_release -irs | tr -d ' '`
