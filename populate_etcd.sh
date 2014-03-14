@@ -1,6 +1,6 @@
 #!/bin/sh
 
-. $(dirname $0)/auth.sh
+. $(dirname $0)/resources/auth.sh
 
 if [ -n "$CURL_OPTS" ]; then
     PROTO=https

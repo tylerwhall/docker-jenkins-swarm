@@ -6,7 +6,7 @@ PUBLIC_IP=${PUBLIC_IP:-127.0.0.1}
 CLIENT_ADDR=4001
 PEER_ADDR=7001
 
-. $(dirname $0)/auth.sh
+. $(dirname $0)/resources/auth.sh
 
 if [ -f "$CERT" -a -f "$KEY" ]; then
     DOCKER_OPTS="-v $ETCD_AUTHDIR:/auth"
