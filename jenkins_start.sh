@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 if [ -z "$ETCD_URL" ]; then
     echo 'Must specify $ETCD_URL in environment'
