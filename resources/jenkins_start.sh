@@ -7,7 +7,7 @@ fi
 
 ETCD_AUTHDIR=${ETCD_AUTHDIR:-./ca}
 
-. $(dirname $0)/resources/auth.sh
+. $(dirname $0)/auth.sh
 
 if [ -f "$CACERT" -a -f "$CERT" -a -f "$KEY" ]; then
     CURL_AUTH="--cacert $CACERT --cert $CERT --key $KEY"
