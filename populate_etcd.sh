@@ -1,8 +1,14 @@
 #!/bin/sh
 
-ETCD_URL=${ETCD_URL:-https://127.0.0.1:5001}
-
 . $(dirname $0)/auth.sh
+
+if [ -n "$CURL_OPTS" ]; then
+    PROTO=https
+else
+    PROTO=http
+fi
+
+ETCD_URL=${ETCD_URL:-$PROTO://127.0.0.1:4001}
 
 read -p "Jenkins URL: " url
 read -p "Jenkins client username: " username

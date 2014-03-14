@@ -3,6 +3,8 @@
 set -e
 
 PUBLIC_IP=${PUBLIC_IP:-127.0.0.1}
+CLIENT_ADDR=4001
+PEER_ADDR=7001
 
 . $(dirname $0)/auth.sh
 
@@ -18,4 +20,4 @@ else
     echo "Authentication files not found. Proceeding without."
 fi
 
-exec docker run -d -p 8001:8001 -p 5001:5001 $DOCKER_OPTS coreos/etcd -peer-addr ${PUBLIC_IP}:8001 -addr ${PUBLIC_IP}:5001 -name `hostname` $ETCD_AUTH
+exec docker run -d -p ${PEER_ADDR}:${PEER_ADDR} -p ${CLIENT_ADDR}:${CLIENT_ADDR} $DOCKER_OPTS coreos/etcd -peer-addr ${PUBLIC_IP}:${PEER_ADDR} -addr ${PUBLIC_IP}:${CLIENT_ADDR} -name `hostname` $ETCD_AUTH
